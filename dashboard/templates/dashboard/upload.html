@@ -1,0 +1,38 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h1 class="title">📤 Upload Flight Data</h1>
+
+<div class="insight-box">
+
+    {% if success %}
+        <p style="color:#22c55e;font-weight:bold;">✅ File uploaded successfully!</p>
+    {% endif %}
+
+    {% if form.errors %}
+        <p style="color:#ef4444;font-weight:bold;">⚠ Please upload a valid CSV file.</p>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>{{ form.file.label_tag }} {{ form.file }}</p>
+        <button type="submit" style="margin-top:10px;background:#1e293b;color:white;padding:10px 20px;border:none;border-radius:8px;cursor:pointer;">
+            Upload
+        </button>
+    </form>
+
+</div>
+
+<hr>
+
+<div class="insight-box">
+    <h3>📋 Upload Notes</h3>
+    <ul>
+        <li>Only CSV files are supported.</li>
+        <li>Expected columns: Destination, Passengers, Delay_Minutes (Origin optional).</li>
+        <li>Uploaded files are stored under <code>media/uploads/</code>.</li>
+    </ul>
+</div>
+
+{% endblock %}

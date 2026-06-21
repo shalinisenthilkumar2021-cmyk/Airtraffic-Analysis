@@ -1,0 +1,18 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h2>Airport Map</h2>
+
+<h1 class="title">🌍 Interactive Airport Map</h1>
+
+<div class="card">
+    <h2>Live Airport Monitoring</h2>
+    <p>Real-Time Visualization</p>
+</div>
+
+<br>
+
+{{ map|safe }}
+
+{% endblock %}

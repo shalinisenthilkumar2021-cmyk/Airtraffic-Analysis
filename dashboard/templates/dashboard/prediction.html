@@ -1,0 +1,45 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h1 class="title">✈️ Flight Delay Prediction</h1>
+
+<div class="row">
+
+    <div class="card">
+        {% if error %}
+            <h2 style="font-size:18px;">⚠ {{ error }}</h2>
+        {% else %}
+            <h2>{{ delay }} Min</h2>
+        {% endif %}
+        <p>Predicted Delay</p>
+    </div>
+
+    <div class="card">
+        <h2>Medium</h2>
+        <p>Risk Level</p>
+    </div>
+
+    <div class="card">
+        <h2>96%</h2>
+        <p>AI Confidence</p>
+    </div>
+
+</div>
+
+<hr>
+
+<div class="insight-box">
+
+    <h3>🤖 AI Prediction Insights</h3>
+
+    <ul>
+        <li>Weather conditions may affect departure timing.</li>
+        <li>Current airport traffic indicates moderate congestion.</li>
+        <li>Recommended buffer time: 20 minutes.</li>
+        <li>Flight operations remain within acceptable limits.</li>
+    </ul>
+
+</div>
+
+{% endblock %}

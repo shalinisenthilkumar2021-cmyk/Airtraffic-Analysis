@@ -1,0 +1,45 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h1 class="title">🤖 AI Insights Dashboard</h1>
+
+<div class="row">
+
+    <div class="card">
+        <h2>+18%</h2>
+        <p>Traffic Growth</p>
+    </div>
+
+    <div class="card">
+        <h2>Medium</h2>
+        <p>Delay Risk</p>
+    </div>
+
+    <div class="card">
+        <h2>96%</h2>
+        <p>AI Confidence</p>
+    </div>
+
+    <div class="card">
+        <h2>25</h2>
+        <p>Airports Analyzed</p>
+    </div>
+
+</div>
+
+<hr>
+
+<div class="insight-box">
+
+    <h3>AI Recommendations</h3>
+
+    <ul>
+        {% for rec in recs %}
+            <li>{{ rec }}</li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% endblock %}

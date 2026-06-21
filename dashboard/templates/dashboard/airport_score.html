@@ -1,0 +1,26 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h1>🏆 Airport Performance Ranking</h1>
+
+<table border="1" width="100%">
+    <tr>
+        <th>Airport</th>
+        <th>Passengers</th>
+        <th>Delay</th>
+        <th>Score</th>
+    </tr>
+
+    {% for airport in ranking %}
+    <tr>
+        <td>{{ airport.Destination }}</td>
+        <td>{{ airport.Passengers }}</td>
+        <td>{{ airport.Delay_Minutes }}</td>
+        <td>{{ airport.Score|floatformat:2 }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

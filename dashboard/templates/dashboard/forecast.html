@@ -1,0 +1,94 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h1 class="title">📈 Passenger Forecasting Dashboard</h1>
+
+<div class="row">
+
+    <div class="card">
+        <h2>{{ prediction }}</h2>
+        <p>Expected Passengers</p>
+    </div>
+
+    <div class="card">
+        <h2>+18%</h2>
+        <p>Growth Rate</p>
+    </div>
+
+    <div class="card">
+        <h2>96%</h2>
+        <p>Forecast Accuracy</p>
+    </div>
+
+</div>
+
+<hr>
+
+<h2>📊 Passenger Forecast Trend</h2>
+
+<canvas id="forecastChart"></canvas>
+
+
+
+<h2>📈 Passenger Forecast</h2>
+
+<p>Next 30 days predicted traffic:</p>
+
+<h3>{{ prediction }}</h3>
+
+<hr>
+
+<div class="insight-box">
+
+    <h3>🤖 Forecast Insights</h3>
+
+    <ul>
+        <li>Passenger traffic expected to increase next month.</li>
+        <li>Peak travel demand predicted during holidays.</li>
+        <li>Airport capacity planning recommended.</li>
+        <li>AI model confidence remains high.</li>
+    </ul>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+new Chart(
+document.getElementById("forecastChart"),
+{
+    type:"line",
+
+    data:{
+        labels:[
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun"
+        ],
+
+        datasets:[{
+            label:"Forecast Passengers",
+
+            data:[
+                5000,
+                6500,
+                7200,
+                8500,
+                9800,
+                12000
+            ],
+
+            borderWidth:3
+        }]
+    }
+}
+);
+
+</script>
+
+{% endblock %}

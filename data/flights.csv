@@ -1,0 +1,11 @@
+Passengers,Delay_Minutes,Destination,Revenue,Delay_Reason
+1000,5,Chennai,50000,On Time
+1200,8,Mumbai,60000,Minor Traffic
+1500,10,Delhi,70000,Minor Traffic
+1700,12,Bangalore,80000,Weather
+2000,15,Hyderabad,90000,Weather
+2200,18,Kolkata,95000,Technical Issue
+2500,20,Chennai,100000,Technical Issue
+2700,22,Mumbai,110000,Air Traffic Congestion
+3000,25,Delhi,120000,Crew Scheduling
+3500,30,Bangalore,140000,Weather

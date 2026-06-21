@@ -1,0 +1,50 @@
+<div class="row">
+<div class="card">
+    <h3>{{ total_passengers }}</h3>
+    <p>Total Passengers</p>
+</div>
+
+<div class="card">
+    <h3>{{ total_flights }}</h3>
+    <p>Total Flights</p>
+</div>
+
+<h3>Passenger Trend Analysis</h3>
+
+<img
+src="{{ passenger_chart }}"
+class="img-fluid">
+
+<div class="card">
+
+<h4>AI Recommendation</h4>
+
+<p>
+{{ recommendation }}
+</p>
+
+</div>
+
+<div class="card">
+
+<h4>Data Quality</h4>
+
+<p>
+{{ quality_score }}%
+</p>
+
+</div>
+
+<a href="{% url 'download_report' %}">
+
+Download Report
+
+</a>
+
+{% load static %}
+
+<link
+rel="stylesheet"
+href="{% static 'css/style.css' %}">
+
+</div>

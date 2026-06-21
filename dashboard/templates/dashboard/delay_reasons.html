@@ -1,0 +1,122 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h1 class="title">🌩 Flight Delay Reasons</h1>
+
+<p style="text-align:center;color:#94a3b8;">
+    Breakdown of delay causes across all flights
+</p>
+
+<br>
+
+{% if missing %}
+    <div class="insight-box">
+        <p>⚠ Delay reason data not available in the current dataset.</p>
+    </div>
+{% else %}
+
+<table class="airport-table">
+
+    <thead>
+        <tr>
+            <th>Reason</th>
+            <th>Flights Affected</th>
+            <th>% Share</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for reason, count, percent in reasons %}
+
+        <tr>
+            <td>{{ reason }}</td>
+            <td>{{ count }}</td>
+            <td>{{ percent }}%</td>
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+<br>
+
+<div class="row">
+
+    <div class="card">
+        <h2>{{ top_reason }}</h2>
+        <p>Most Common Delay Reason</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ reasons|length }}</h2>
+        <p>Distinct Delay Categories</p>
+    </div>
+
+    <div class="card">
+        <h2>AI</h2>
+        <p>Cause Analysis Engine</p>
+    </div>
+
+</div>
+
+<div class="insight-box">
+
+    <h3>⏱ Average Delay by Reason</h3>
+
+    <ul>
+        {% for reason, avg in avg_delay_by_reason %}
+            <li>{{ reason }}: {{ avg }} minutes average delay</li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<div class="insight-box">
+
+    <h3>🤖 AI Recommendations</h3>
+
+    <ul>
+        <li>Weather-related delays need proactive rescheduling alerts.</li>
+        <li>Technical issue delays suggest reviewing maintenance turnaround time.</li>
+        <li>Air traffic congestion delays may improve with better slot allocation.</li>
+        <li>Crew scheduling delays can be reduced with buffer staffing.</li>
+    </ul>
+
+</div>
+
+{% endif %}
+
+<style>
+
+.airport-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    color:black;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.airport-table th{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+}
+
+.airport-table td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.airport-table tr:hover{
+    background:#f8fafc;
+}
+
+</style>
+
+{% endblock %}

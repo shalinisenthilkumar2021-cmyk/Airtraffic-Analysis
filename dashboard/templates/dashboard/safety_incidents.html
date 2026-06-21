@@ -1,0 +1,133 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h1 class="title">🛬 Flight Safety Incidents</h1>
+
+<p style="text-align:center;color:#94a3b8;">
+    Historical safety incident records and root-cause analysis (sample data)
+</p>
+
+<br>
+
+{% if missing %}
+    <div class="insight-box">
+        <p>⚠ Incident data not available.</p>
+    </div>
+{% else %}
+
+<div class="row">
+
+    <div class="card">
+        <h2>{{ total_incidents }}</h2>
+        <p>Total Recorded Incidents</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ most_common_type }}</h2>
+        <p>Most Common Incident Type</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ most_affected_airport }}</h2>
+        <p>Most Affected Airport</p>
+    </div>
+
+</div>
+
+<br>
+
+<table class="airport-table">
+
+    <thead>
+        <tr>
+            <th>Airport</th>
+            <th>Incident Type</th>
+            <th>Severity</th>
+            <th>Reason</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for row in incidents %}
+
+        <tr>
+            <td>{{ row.Airport }}</td>
+            <td>{{ row.Incident_Type }}</td>
+            <td>{{ row.Severity }}</td>
+            <td>{{ row.Reason }}</td>
+            <td>{{ row.Year }}</td>
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+<br>
+
+<div class="insight-box">
+
+    <h3>📊 Severity Breakdown</h3>
+
+    <ul>
+        {% for severity, count in severity_breakdown %}
+            <li>{{ severity }}: {{ count }} incident(s)</li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<div class="insight-box">
+
+    <h3>🤖 AI Safety Recommendations</h3>
+
+    <ul>
+        <li>Bird strike incidents suggest enhanced wildlife management near runways.</li>
+        <li>Technical fault patterns indicate a need for tighter maintenance audits.</li>
+        <li>Runway excursions correlate with wet-weather conditions — review braking protocols.</li>
+        <li>Near-miss events highlight the importance of clear ATC communication procedures.</li>
+    </ul>
+
+</div>
+
+<p style="text-align:center;color:#64748b;font-size:13px;margin-top:20px;">
+    Note: This data is illustrative sample data for analytics demonstration purposes only,
+    not a real aviation safety record.
+</p>
+
+{% endif %}
+
+<style>
+
+.airport-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    color:black;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.airport-table th{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+}
+
+.airport-table td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.airport-table tr:hover{
+    background:#f8fafc;
+}
+
+</style>
+
+{% endblock %}

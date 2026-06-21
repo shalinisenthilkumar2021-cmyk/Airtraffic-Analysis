@@ -1,0 +1,23 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h2>Route Analytics</h2>
+
+<table border="1">
+    <tr>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Flights</th>
+    </tr>
+
+    {% for route in routes %}
+    <tr>
+        <td>{{ route.0 }}</td>
+        <td>{{ route.1 }}</td>
+        <td>{{ route.2 }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

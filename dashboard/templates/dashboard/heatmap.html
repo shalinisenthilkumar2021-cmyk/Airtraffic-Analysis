@@ -1,0 +1,59 @@
+{% extends 'dashboard/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h1 class="title">🌍 Airport Congestion Heatmap</h1>
+
+<div class="row">
+
+    <div class="card">
+        <h2>25</h2>
+        <p>Airports Monitored</p>
+    </div>
+
+    <div class="card">
+        <h2>8</h2>
+        <p>High Congestion Zones</p>
+    </div>
+
+    <div class="card">
+        <h2>AI</h2>
+        <p>Heatmap Engine</p>
+    </div>
+
+</div>
+
+<hr>
+
+<div style="text-align:center;">
+
+    <img
+        src="{% static 'images/heatmap.png' %}"
+        width="100%"
+        style="
+        max-width:1000px;
+        border-radius:15px;
+        box-shadow:0 8px 20px rgba(0,0,0,.3);
+        "
+    >
+
+</div>
+
+<hr>
+
+<div class="insight-box">
+
+    <h3>🤖 Heatmap Insights</h3>
+
+    <ul>
+        <li>Major congestion detected near metro airports.</li>
+        <li>Peak traffic observed during morning hours.</li>
+        <li>Additional boarding gates recommended.</li>
+        <li>AI identifies potential delay hotspots.</li>
+    </ul>
+
+</div>
+
+{% endblock %}

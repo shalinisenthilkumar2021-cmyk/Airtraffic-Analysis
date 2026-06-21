@@ -1,0 +1,204 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h1>✈️ Air Traffic Intelligence Dashboard</h1>
+
+<div class="row">
+
+    <div class="card">
+        <h3>{{ total_flights }}</h3>
+        <p>✈ Total Flights</p>
+    </div>
+
+
+    <div class="card">
+        <h2>$2.4M</h2>
+        <p>💰 Revenue Impact</p>
+    </div>
+
+    <div class="card">
+        <h2>120K L</h2>
+        <p>⛽ Fuel Usage</p>
+    </div>
+
+    <div class="card">
+        <h2>45 Tons</h2>
+        <p>🌍 CO₂ Emission</p>
+    </div>
+
+    <div class="card">
+        <h2>$100K</h2>
+        <p>⚠ Delay Cost</p>
+    </div>
+
+
+    <div class="card">
+        <h3>{{ total_passengers }}</h3>
+        <p>👥 Passengers</p>
+    </div>
+
+    <div class="card">
+        <h3>{{ avg_delay }}</h3>
+        <p>⏱ Avg Delay</p>
+    </div>
+
+    <div class="card">
+        <h3>{{ top_airport }}</h3>
+        <p>🏆 Top Airport</p>
+    </div>
+
+    <div class="card">
+        <h3>92%</h3>
+        <p>🟢 On Time Rate</p>
+    </div>
+
+    <div class="card">
+        <h3>32</h3>
+        <p>❌ Cancelled Flights</p>
+    </div>
+
+</div>
+
+<hr>
+
+<h2>Passenger Traffic Analysis</h2>
+
+<canvas id="trafficChart"></canvas>
+
+<hr>
+
+<div class="insight-box">
+
+    <h2>🤖 AI Recommendation</h2>
+
+    <p>{{ recommendation }}</p>
+
+</div>
+
+<hr>
+
+<h2>✈ Airport Performance Summary</h2>
+
+<div class="row">
+
+    <div class="card">
+        <h3>92%</h3>
+        <p>Best On-Time Airport</p>
+    </div>
+
+    <div class="card">
+        <h3>15.4 Min</h3>
+        <p>Average Delay</p>
+    </div>
+
+    <div class="card">
+        <h3>4.8/5</h3>
+        <p>Passenger Satisfaction</p>
+    </div>
+
+</div>
+
+<br>
+
+<div class="insight-box">
+
+
+    <h2>🚀 Executive Overview</h2>
+
+    <p>
+        Monitor flight traffic, predict delays, analyze airport performance,
+        forecast passenger demand and generate AI-powered recommendations.
+    </p>
+</div>
+
+    <h2>🤖 AI Quick Insights</h2>
+
+    <ul>
+        <li>Bangalore Airport has highest on-time performance.</li>
+        <li>Mumbai airport delays increased by 8%.</li>
+        <li>Weather contributed to 20% of delays.</li>
+        <li>Passenger traffic expected to grow next month.</li>
+    </ul>
+
+
+
+
+<h2>🤖 AI Analytics Summary</h2>
+
+<div class="row">
+
+    <div class="card">
+        <h3>+18%</h3>
+        <p>Passenger Growth</p>
+    </div>
+
+    <div class="card">
+        <h3>Medium</h3>
+        <p>Delay Risk</p>
+    </div>
+
+    <div class="card">
+        <h3>96%</h3>
+        <p>AI Confidence</p>
+    </div>
+
+    <div class="card">
+         <h3>87%</h3>
+         <p>Forecast Accuracy</p>
+    </div>
+
+</div>
+
+
+
+<h2>🏆 Top Airports</h2>
+
+<ol>
+{% for airport, passengers in context_top3 %}
+<li>{{ airport }} - {{ passengers }}</li>
+{% endfor %}
+</ol>
+
+
+<p>
+Top performing airport:
+<b>{{ top_airport }}</b>
+</p>
+
+<p>
+Average delay:
+<b>{{ avg_delay }} Minutes</b>
+</p>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+new Chart(
+document.getElementById('trafficChart'),
+{
+type:'bar',
+data:{
+labels:[
+'Delhi',
+'Mumbai',
+'Bangalore',
+'Chennai'
+],
+datasets:[{
+label:'Passengers',
+data:[
+4500,
+7000,
+5500,
+3200
+]
+}]
+}
+}
+);
+</script>
+
+{% endblock %}

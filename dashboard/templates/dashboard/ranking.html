@@ -1,0 +1,102 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h1 class="title">🏆 Airport Performance Ranking</h1>
+
+<p style="text-align:center;color:#94a3b8;">
+    Passenger Traffic Based Airport Ranking
+</p>
+
+<br>
+
+<table class="airport-table">
+
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Airport</th>
+            <th>Passengers</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for airport, passengers in ranking %}
+
+        <tr>
+            <td>#{{ forloop.counter }}</td>
+            <td>{{ airport }}</td>
+            <td>{{ passengers }}</td>
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+<br>
+
+<div class="row">
+
+    <div class="card">
+        <h2>{{ ranking|length }}</h2>
+        <p>Total Ranked Airports</p>
+    </div>
+
+    <div class="card">
+        <h2>#1</h2>
+        <p>Top Ranked Airport</p>
+    </div>
+
+    <div class="card">
+        <h2>AI</h2>
+        <p>Ranking Engine</p>
+    </div>
+
+</div>
+
+<div class="insight-box">
+
+    <h3>🤖 Ranking Insights</h3>
+
+    <ul>
+        <li>Top ranked airports handle the highest passenger traffic.</li>
+        <li>Airport rankings are generated using passenger volume.</li>
+        <li>Higher ranked airports require better congestion management.</li>
+        <li>AI recommends additional gate optimization for top hubs.</li>
+    </ul>
+
+</div>
+
+<style>
+
+.airport-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    color:black;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.airport-table th{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+}
+
+.airport-table td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.airport-table tr:hover{
+    background:#f8fafc;
+}
+
+</style>
+
+{% endblock %}

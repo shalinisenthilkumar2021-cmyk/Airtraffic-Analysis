@@ -1,0 +1,11 @@
+Airport,Incident_Type,Severity,Reason,Year
+Chennai,Runway Excursion,Minor,Wet Runway Conditions,2023
+Mumbai,Bird Strike,Minor,Wildlife Hazard Near Runway,2023
+Delhi,Technical Fault,Major,Engine Sensor Malfunction,2022
+Bangalore,Near Miss,Minor,Air Traffic Control Miscommunication,2024
+Hyderabad,Bird Strike,Minor,Wildlife Hazard Near Runway,2023
+Kolkata,Technical Fault,Moderate,Hydraulic System Failure,2022
+Chennai,Ground Collision,Moderate,Ground Crew Coordination Error,2021
+Mumbai,Runway Excursion,Major,Brake System Failure,2021
+Delhi,Bird Strike,Minor,Wildlife Hazard Near Runway,2024
+Bangalore,Technical Fault,Minor,Avionics Software Glitch,2024

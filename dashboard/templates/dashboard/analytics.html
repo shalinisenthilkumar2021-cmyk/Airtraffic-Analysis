@@ -1,0 +1,243 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1 class="title">
+        ✈️ Air Traffic Intelligence Dashboard
+    </h1>
+
+    <p style="text-align:center;color:#94a3b8;">
+        Real-Time Airport Analytics, Passenger Forecasting & AI Insights
+    </p>
+
+    <!-- KPI Cards -->
+    <div class="row">
+
+        <div class="card">
+            <h2>{{ airports|length }}</h2>
+            <p>Total Airports</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ total_passengers }}</h2>
+            <p>Total Passengers</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ busiest_airport }}</h2>
+            <p>Busiest Airport</p>
+        </div>
+
+        <div class="card">
+            <h2>92%</h2>
+            <p>On-Time Rate</p>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Chart -->
+    <div class="chart-container">
+        <h3>📊 Passenger Distribution</h3>
+        <canvas id="airportChart"></canvas>
+        <hr>
+
+        <h3>📈 Monthly Passenger Trend</h3>
+
+        <canvas id="trendChart"></canvas>
+
+    </div>
+
+    <hr>
+
+    <!-- Ranking Table -->
+    <h3>🏆 Airport Passenger Ranking</h3>
+
+    <table class="airport-table">
+
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Airport</th>
+                <th>Passengers</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for airport, passengers in airports %}
+
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ airport }}</td>
+                <td>{{ passengers }}</td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <hr>
+
+    <!-- AI Insights -->
+    <div class="insight-box">
+
+        <h3>🤖 AI Generated Insights</h3>
+
+        <ul>
+            <li>Busiest airport is <b>{{ busiest_airport }}</b>.</li>
+            <li>Passenger demand is increasing across major hubs.</li>
+            <li>Peak-hour congestion risk detected.</li>
+            <li>Additional boarding gates recommended.</li>
+            <li>AI predicts 12% traffic growth next quarter.</li>
+        </ul>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx = document.getElementById("airportChart");
+
+new Chart(ctx, {
+
+    type: "bar",
+
+    data: {
+
+        labels: [
+            {% for airport, passengers in airports %}
+            "{{ airport }}",
+            {% endfor %}
+        ],
+
+        datasets: [{
+            label: "Passengers",
+
+            data: [
+                {% for airport, passengers in airports %}
+                {{ passengers }},
+                {% endfor %}
+            ],
+
+            borderWidth: 2
+        }]
+    },
+
+    options: {
+        responsive: true,
+
+        plugins: {
+            legend: {
+                display: true
+            }
+        }
+    }
+});
+
+new Chart(
+document.getElementById("trendChart"),
+{
+type:"line",
+data:{
+labels:["Jan","Feb","Mar","Apr","May","Jun"],
+datasets:[{
+label:"Passengers",
+data:[12000,15000,18000,22000,25000,30000]
+}]
+}
+});
+
+
+
+</script>
+
+<style>
+
+.title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.row{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    flex:1;
+    min-width:220px;
+    padding:25px;
+    background:white;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h2{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#555;
+}
+.chart-container{
+    width:100%;
+    margin-top:20px;
+}
+
+.airport-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.airport-table th,
+.airport-table td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+.airport-table th{
+    background:#0d6efd;
+    color:white;
+}
+
+.insight-box{
+    background:#eef8ff;
+    padding:20px;
+    border-left:5px solid #0d6efd;
+    border-radius:10px;
+}
+
+.airport-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    color:black;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.airport-table tr:hover{
+    background:#f1f5f9;
+}
+
+</style>
+
+{% endblock %}

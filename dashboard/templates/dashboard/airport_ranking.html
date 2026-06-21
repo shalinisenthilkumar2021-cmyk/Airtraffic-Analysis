@@ -1,0 +1,13 @@
+<table>
+    <tr>
+        <th>Airport</th>
+        <th>Score</th>
+    </tr>
+
+    {% for row in ranking %}
+    <tr>
+        <td>{{ row.Airport }}</td>
+        <td>{{ row.Score }}</td>
+    </tr>
+    {% endfor %}
+</table>

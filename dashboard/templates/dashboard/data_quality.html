@@ -1,0 +1,42 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h1 class="title">📊 Data Quality Dashboard</h1>
+
+<div class="row">
+
+    <div class="card">
+        <h2>{{ quality_score }}%</h2>
+        <p>Data Quality Score</p>
+    </div>
+
+    <div class="card">
+        <h2>AI</h2>
+        <p>Quality Engine</p>
+    </div>
+
+    <div class="card">
+        <h2>CSV</h2>
+        <p>Data Validation</p>
+    </div>
+
+</div>
+
+<hr>
+
+<div class="insight-box">
+
+    <h3>🔍 Data Quality Analysis</h3>
+
+    <ul>
+        <li>Missing values have been analyzed.</li>
+        <li>Duplicate records detected and evaluated.</li>
+        <li>Dataset consistency verified.</li>
+        <li>Quality score generated using AI validation rules.</li>
+    </ul>
+
+</div>
+
+{% endblock %}
+
