@@ -129,7 +129,12 @@ Airtraffic-Analysis/
 
 ## Author
 
-**Your Name**
-- 📄 [Resume](YOUR_RESUME_LINK_HERE)
+## Author
+
+**Shalini Senthilkumar**
+
+- 💻 GitHub: https://github.com/shalinisenthilkumar2021-cmyk
+- LinkedIn: https://linkedin.com/in/your-linkedin-id
+- Email: shalinisenthilkumar2021@gmail.com
 - 🌐 [Portfolio](YOUR_PORTFOLIO_LINK_HERE)
-- 💻 [GitHub](https://github.com/YOUR_GITHUB_USERNAME)
+  
